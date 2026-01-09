@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto consiste en la maquetación e implementación de una Landing Page moderna basada en el diseño "TheBox". Fue desarrollado utilizando **React** con **TypeScript** y **Vite**, enfocándose en buenas prácticas de arquitectura de componentes y código limpio.
 
-Currently, two official plugins are available:
+## Descripción del Proyecto
+El objetivo principal fue transformar un diseño estático en una aplicación web reactiva, asegurando una estructura escalable.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Estructura HTML
+Se priorizó el uso de **HTML5** para mejorar la accesibilidad y la estructura del documento, evitando el uso excesivo de `<div>` genéricos.
 
-## React Compiler
+* **`<header>`**: Contenedor principal de la navegación y el logotipo.
+* **`<nav>`**: Define los enlaces de navegación principales.
+* **`<main>`**: Envuelve el contenido principal de la página (Hero y Reputación).
+* **`<section>`**: Delimita áreas temáticas grandes (como la sección Hero).
+* **`<article>`**: Utilizado para las "Cards" de reputación, ya que representan contenido independiente y reutilizable.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Convención CSS (BEM)
+Para los estilos se implementó la metodología **BEM (Block Element Modifier)**. Esto permite mantener un CSS modular y fácil de mantener, evitando conflictos de especificidad.
 
-## Expanding the ESLint configuration
+* **Bloque**: El componente padre (ej. `.card`).
+* **Elemento**: Una parte interna del bloque (ej. `.card__title`).
+* **Modificador**: Una variante del estilo (ej. `.button--primary`).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Interactividad (JavaScript/TypeScript)
+La lógica del proyecto se maneja mediante componentes funcionales de React.
+* **Addition**: Se implementó una función disparada por un evento `onClick`. Esta función utiliza `Math.random()` para generar dos números enteros aleatorios (1-100), los presenta al usuario mediante un `alert`, y posteriormente calcula y muestra la suma total.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Resultado Final
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+![Vista previa de la Landing Page](./screenshot.png)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+Desarrollado por: **Cristian Morales Cobián**
